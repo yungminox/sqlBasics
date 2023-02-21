@@ -64,3 +64,32 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
 
+Added elements so books can be borrowed
+
+CREATE TABLE `book` (
+  `id` int NOT NULL,
+  `title` varchar(45) NOT NULL,
+  `price` varchar(45) NOT NULL,
+  `author` varchar(45) NOT NULL,
+  `stock` int NOT NULL,
+  `ageRating` int NOT NULL,
+  `borrowed` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE `customer` (
+  `id` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `age` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+CREATE TABLE `transaction` (
+  `id` int NOT NULL,
+  `borrowDate` datetime DEFAULT NULL,
+  `book` varchar(45) DEFAULT NULL,
+  `customer` varchar(45) DEFAULT NULL,
+  `returnDeadline` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
